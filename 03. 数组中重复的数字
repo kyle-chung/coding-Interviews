@@ -9,7 +9,7 @@
 输出：2 或 3 
 
 
-# 暴力解法
+# 暴力解法：O(1)--O()
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
         l = []
