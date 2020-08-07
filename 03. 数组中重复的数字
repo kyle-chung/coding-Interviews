@@ -19,5 +19,27 @@ class Solution:
             else:
                 l.append(i)
 
+方法1：利用python set的无序不重复特性：利用Python中的set集合为无序不重复集合，通过判断temp_set的长度确定是否是重复数字。
+
+class Solution:
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        temp_set = set()
+        repeat = -1
+        for i in range(len(nums)):
+            temp_set.add(nums[i])
+            if len(temp_set) < i + 1:
+                repeat = nums[i]
+                break
+        return repeat
+        
+方法2：利用python的sort函数排序，然后计算相邻两个数据是否相等即可。
+
+class Solution:
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        nums.sort()
+        for i in range(len(nums)-1):
+            if nums[i]==nums[i+1]:
+                return nums[i]
+
 
 
