@@ -15,4 +15,17 @@
 
 给定 target = 20，返回 false。
 
+时间复杂度为 O(NM)
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        # write code here
+        l = len(array)
+        k = -1
+        for i in range(l):
+            if target in array[i]:
+                k = 0
+                return True
+        if k == -1:
+            return False
  
