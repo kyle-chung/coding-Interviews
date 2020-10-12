@@ -4,3 +4,9 @@
 
 输入：s = "We are happy."
 输出："We%20are%20happy."
+
+# O(n)
+class Solution:
+    def replaceSpace(self, s: str) -> str:
+        s = s.split(' ')
+        return '%20'.join(s)
