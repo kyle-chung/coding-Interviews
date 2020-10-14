@@ -21,3 +21,4 @@ class Solution:
     def reversePrint(self, head: ListNode) -> List[int]:
         return self.reversePrint(head.next) + [head.val] if head else []
 
+这个例子充分说明了递归本质上就是一个栈，先进后出。
