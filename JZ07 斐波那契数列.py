@@ -25,3 +25,23 @@ class Solution:
             new = l[len(l) - 1] + l[len(l) - 2]
             l.append(new)
         return l[len(l) - 1] + l[len(l) - 2]
+
+# method1 recursive
+常规的递归操作时间复杂度O(2^N), 循环操作时间复杂度O（N）
+class Solution:
+    def fib(self, n: int) -> int:
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        return self.fib(n-1) + self.fib(n-2)
+
+# best solution
+class Solution:
+    def fib(self, n: int) -> int:
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a 
+
+
