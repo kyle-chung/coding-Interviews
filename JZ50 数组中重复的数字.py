@@ -60,6 +60,7 @@ class Solution(object):
         
         return None
 
+Python 中, a,b = c,d 操作的原理是先暂存元组 (c,d) ，然后 “按左右顺序” 赋值给 a 和 b 。
 
 
 
