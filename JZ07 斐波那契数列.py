@@ -16,7 +16,7 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 输出：5
 
 记忆化递归法： O(n)
-缺点： 记忆化存储需要使用 O(N)O(N) 的额外空间。
+缺点： 记忆化存储需要使用 O(N) 的额外空间。
 
 class Solution:
     def fib(self, n: int) -> int:
