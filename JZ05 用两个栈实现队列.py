@@ -14,7 +14,17 @@
 [[],[],[5],[2],[],[]]
 输出：[null,-1,null,null,5,2]
 
-提示：
 
-1 <= values <= 10000
-最多会对 appendTail、deleteHead 进行 10000 次调用
+class CQueue:
+    def __init__(self):
+        self.A, self.B = [], []
+
+    def appendTail(self, value: int) -> None:
+        self.A.append(value)
+
+    def deleteHead(self) -> int:
+        if self.B: return self.B.pop()
+        if not self.A: return -1
+        while self.A:
+            self.B.append(self.A.pop())
+        return self.B.pop()
