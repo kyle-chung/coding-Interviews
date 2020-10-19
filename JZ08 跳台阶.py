@@ -19,3 +19,13 @@
 1.  1 阶 + 1 阶 + 1 阶
 2.  1 阶 + 2 阶
 3.  2 阶 + 1 阶
+
+本题所产生的数列即为斐波那契（Fibonacci）数列
+
+# 直接递归
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n == 1: return 1
+        if n == 2: return 2
+        return self.climbStairs(n-1) + self.climbStairs(n-2)
+
