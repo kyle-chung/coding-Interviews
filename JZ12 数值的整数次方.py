@@ -40,6 +40,6 @@ class Solution:
   执行 x = x^2
   执行 n 右移一位（即 n >>= 1）
 
-返回 resres 。
+返回 res
 
 
