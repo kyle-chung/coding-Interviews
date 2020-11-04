@@ -45,8 +45,8 @@ class Solution:
 每轮 i 或 j 移动后，相当于生成了“消去一行（列）的新矩阵”， 索引(i,j) 指向新矩阵的左下角元素（标志数），因此可重复使用以上性质消去行（列）。
 
 复杂度分析：
-时间复杂度 O(M+N)O(M+N) ：其中，NN 和 MM 分别为矩阵行数和列数，此算法最多循环 M+NM+N 次。
-空间复杂度 O(1)O(1) : i, j 指针使用常数大小额外空间。
+时间复杂度 O(M+N)：其中，N 和 M 分别为矩阵行数和列数，此算法最多循环 M+N 次。
+空间复杂度 O(1) : i, j 指针使用常数大小额外空间。
 
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
