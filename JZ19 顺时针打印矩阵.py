@@ -21,7 +21,7 @@ class Solution:
             matrix = list(zip(*matrix))[::-1]
         return res
 
-考虑设定矩阵的“左、上、右、下”四个边界，模拟以上矩阵遍历顺序。
+考虑设定矩阵的“左、上、右、下”四个边界，模拟以上矩阵遍历顺序。l和1要分清！！！
 class Solution:
     def spiralOrder(self, matrix:[[int]]) -> [int]:
         if not matrix: return []
