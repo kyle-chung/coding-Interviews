@@ -26,6 +26,30 @@ class Solution:
         # 返回新链表头部
         return cur
 
+递归：这个思路也采用头插法的方式，建立头节点副本，用于递归中目标插入节点。匹配到最后一个不为空的节点，再建立一个副本，用于作为递归中的当前节点，以此实现头插法。
+
+注：关键点在于每次递归后，参数值是上一次，递归前的数值，因此如果保存每次递归的值需要手动return temp。
+
+class Solution:
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        
+        # 递归算法
+        if not head:
+            return None
+        if not head.next:
+            return head
+        temp = head
+        while temp.next:
+            temp = temp.next
+        # 此时temp到达了最后一个不为空的节点
+        result = temp
+        self.move_single(head,temp)
+        return result
+    
 双指针
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
