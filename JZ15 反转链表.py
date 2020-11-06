@@ -52,10 +52,19 @@ class Solution:
     
 双指针
 class Solution:
+    # 双指针，一个指针用作新生成的一个链表当前节点，另一个指针用于源链表遍历
     def reverseList(self, head: ListNode) -> ListNode:
-        pre, cur = None, head
-        while cur:
-            # "=" 右边的值先全部保存再一次性赋值给 "=" 左边的变量
-            cur.next, pre, cur = pre, cur, cur.next
-        return pre
+        if not head:
+            return None
+        pre = head
+        cur = None
+        while pre:
+            # 这个临时节点就相当于一个副本
+            temp = ListNode(pre.val)
+            temp.next = cur
+            cur = temp
+            pre = pre.next
+        return cur
+
+
 
