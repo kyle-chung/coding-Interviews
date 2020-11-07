@@ -5,22 +5,19 @@
 输入：1->2->4, 1->3->4
 输出：1->1->2->3->4->4
 
+核心思想：定义一个节点用于返回， 循环比大小，谁小连谁，最后连没连完的
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        l = []
-        while l1:
-            l.append(l1.val)
-            l1 = l1.next
+        dummy = cur = ListNode(0)
+        while l1 and l2:
+            if l1.val < l2.val: #l1 小
+                cur.next = l1 
+                l1 = l1.next
+            else:
+                cur.next = l2
+                l2 = l2.next
+            cur = cur.next
+        cur.next = l1 or l2
+        return dummy.next
+                
 
-        while l2:
-            l.append(l2.val)
-            l2 = l2.next
-
-        l.sort()
-
-        res = ListNode(l[0])
-        temp = res
-        for i in range(len(l) - 1):
-            temp.next = ListNode(l[i+1])
-            temp = temp.next
-        return res  
