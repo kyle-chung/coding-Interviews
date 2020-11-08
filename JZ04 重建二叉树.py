@@ -21,15 +21,16 @@
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        if len(preorder) == 0:
-            return None
-        # print(preorder[0])
-        ind = inorder.index(preorder[0])
-        print(ind)
-        root = TreeNode(preorder[0])
-        left = self.buildTree(preorder[1:ind+1], inorder[:ind] ) # ind表示左子树有多少个元素，所以这里是从1到ind+1
-        right = self.buildTree(preorder[ind+1:], inorder[ind+1:]) # 这里填充的是 root这个元素
-        root.left = left
-        root.right = right
+        def recur(root, left, right):
+            if left > right: return                               # 递归终止
+            node = TreeNode(preorder[root])                       # 建立根节点
+            i = dic[preorder[root]]                               # 划分根节点、左子树、右子树
+            node.left = recur(root + 1, left, i - 1)              # 开启左子树递归
+            node.right = recur(i - left + root + 1, i + 1, right) # 开启右子树递归
+            return node                                           # 回溯返回根节点
 
-        return root
+        dic, preorder = {}, preorder
+        for i in range(len(inorder)):
+            dic[inorder[i]] = i
+        return recur(0, 0, len(inorder) - 1)
+
