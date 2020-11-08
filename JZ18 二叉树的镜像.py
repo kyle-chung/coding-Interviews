@@ -28,5 +28,17 @@ class Solution:
         root.left = self.mirrorTree(root.right)
         root.right = self.mirrorTree(tmp)
         return root
+    
+辅助栈: 利用栈（或队列）遍历树的所有节点 nodenode ，并交换每个 nodenode 的左 / 右子节点
+class Solution:
+    def mirrorTree(self, root: TreeNode) -> TreeNode:
+        if not root: return
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            if node.left: stack.append(node.left)
+            if node.right: stack.append(node.right)
+            node.left, node.right = node.right, node.left
+        return root
 
 
