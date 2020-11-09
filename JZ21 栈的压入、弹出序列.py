@@ -25,6 +25,7 @@ class Solution:
                 stack.pop()
                 i += 1
         return not stack
+not stack 妙！
       
 自创：考虑相对位置      
 class Solution:
