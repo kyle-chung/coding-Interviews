@@ -35,11 +35,8 @@ class Solution(object):
 摩尔投票法： 核心理念为 票数正负抵消 。此方法时间和空间复杂度分别为 O(N) 和 O(1) ，为本题的最佳解法。
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        votes, count = 0, 0
+        votes = 0
         for num in nums:
             if votes == 0: x = num
             votes += 1 if num == x else -1
-        # 验证 x 是否为众数
-        for num in nums:
-            if num == x: count += 1
-        return x if count > len(nums) // 2 else 0 # 当无众数时返回 0
+
