@@ -31,3 +31,4 @@ class Solution(object):
                 if write[i] > (len(nums) / 2):
                     return i
         return None
+  
