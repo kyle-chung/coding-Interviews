@@ -3,7 +3,7 @@
 参考以下这颗二叉搜索树：
 
      5
-    / \
+    / \shi
    2   6
   / \
  1   3
@@ -17,3 +17,16 @@
 输出: true
 
 二叉搜索树定义： 左子树中所有节点的值 << 根节点的值；右子树中所有节点的值 >> 根节点的值；其左、右子树也分别为二叉搜索树。
+
+辅助单调栈：
+class Solution:
+    def verifyPostorder(self, postorder: [int]) -> bool:
+        stack, root = [], float("+inf")
+        for i in range(len(postorder) - 1, -1, -1):
+            if postorder[i] > root: return False
+            while(stack and postorder[i] < stack[-1]):
+                root = stack.pop()
+            stack.append(postorder[i])
+        return True
+父节点值 root = +∞ （初始值为正无穷大，可把树的根节点看为此无穷大节点的左孩子）
+
