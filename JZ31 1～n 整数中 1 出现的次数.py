@@ -26,4 +26,4 @@ class Solution:
             high //= 10
             digit *= 10
         return res
-
+灵活利用//，%！！
