@@ -12,7 +12,7 @@
 输入：n = 13
 输出：6
 
-思路：将 11 ~ nn 的个位、十位、百位、...的 11 出现次数相加，即为 11 出现的总次数。
+思路：将 1 ~ n 的个位、十位、百位、...的 1 出现次数相加，即为 1 出现的总次数。
 class Solution:
     def countDigitOne(self, n: int) -> int:
         digit, res = 1, 0
