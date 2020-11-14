@@ -32,7 +32,7 @@ class Solution:
 
             num += 1
 
-
+丑数的递推性质： 丑数只包含因子 2, 3, 5，因此有 “丑数 = 某较小丑数 × 某因子” （例如：10 = 5×2）
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         dp, a, b, c = [1] * n, 0, 0, 0
