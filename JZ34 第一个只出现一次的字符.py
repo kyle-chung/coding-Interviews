@@ -22,7 +22,7 @@ class Solution:
         dic = {}
         for c in s:
             dic[c] = not c in dic
-            for key,value in d.items()
+#       for key,value in d.items()
         for k, v in dic.items():
             if v: return k
         return ' '
