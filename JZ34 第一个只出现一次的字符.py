@@ -8,15 +8,7 @@ s = "abaccdeff"
 s = "" 
 返回 " "
 
-class Solution:
-    def firstUniqChar(self, s: str) -> str:
-        dic = {}
-        for c in s:
-            dic[c] = not c in dic
-        for c in s:
-            if dic[c]: return c
-        return ' '
-
+哈希表：
 class Solution:
     def firstUniqChar(self, s: str) -> str:
         dic = {}
@@ -25,5 +17,8 @@ class Solution:
 #       for key,value in d.items()
         for k, v in dic.items():
             if v: return k
+#         the same：
+#         for c in s:
+#             if dic[c]: return c
         return ' '
 
