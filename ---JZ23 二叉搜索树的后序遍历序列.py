@@ -30,6 +30,7 @@ class Solution:
         stack, root = [], float("+inf")
         for i in range(len(postorder) - 1, -1, -1):
             if postorder[i] > root: return False
+#           递减时进入while，因此 stack 存储值递增的节点
             while(stack and postorder[i] < stack[-1]):
                 root = stack.pop()
             stack.append(postorder[i])
