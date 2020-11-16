@@ -36,4 +36,3 @@ class Solution:
         return True
 父节点值 root = +∞ （初始值为正无穷大，可把树的根节点看为此无穷大节点的左孩子）
 
-设
