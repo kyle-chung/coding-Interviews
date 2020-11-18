@@ -5,3 +5,14 @@
 输入: [7,5,6,4]
 输出: 5
 
+自创：
+class Solution:
+    def reversePairs(self, nums: List[int]) -> int:
+        count = 0
+        while nums:
+            temp = nums.pop(0)
+            for i in nums:
+                if temp > i:
+                    count += 1  
+        
+        return count
