@@ -40,7 +40,7 @@ class Solution:
 
         return depth
     
-    recur：
+recur：
 class Solution(object):
     def maxDepth(self, root):
         if root == None:
