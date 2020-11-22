@@ -41,13 +41,8 @@ class Solution:
         return depth
     
     recur：
-    class Solution(object):
+class Solution(object):
     def maxDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        
         if root == None:
             return 0
         
