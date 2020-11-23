@@ -8,4 +8,13 @@
 
 输入: [4,1,2,1,2]
 输出: 4
+  
+hashmap:不符合空间要求
+
+位运算：
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        return reduce(lambda x, y: x ^ y, nums)
+
+
 
