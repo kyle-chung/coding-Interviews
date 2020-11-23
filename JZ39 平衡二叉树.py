@@ -25,4 +25,21 @@ class Solution:
     def depth(self, root):
         if not root: return 0
         return max(self.depth(root.left), self.depth(root.right)) + 1
+    
+后序遍历 + 剪枝 （从底至顶）：
+
+思路是对二叉树做后序遍历，从底至顶返回子树深度，若判定某子树不是平衡树则 “剪枝” ，直接向上返回
+时间复杂度 O(N)
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        def recur(root):
+            if not root: return 0
+            left = recur(root.left)
+            if left == -1: return -1
+            right = recur(root.right)
+            if right == -1: return -1
+            return max(left, right) + 1 if abs(left - right) <= 1 else -1
+
+        return recur(root) != -1
+
 
