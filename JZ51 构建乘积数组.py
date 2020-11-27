@@ -4,3 +4,15 @@
 
 输入: [1,2,3,4,5]
 输出: [120,60,40,30,24]
+
+时间复杂度 O(N) ： 其中 N 为数组长度，两轮遍历数组 a ，使用 O(N) 时间。
+class Solution:
+    def constructArr(self, a: List[int]) -> List[int]:
+        b, tmp = [1] * len(a), 1
+        for i in range(1, len(a)):
+            b[i] = b[i - 1] * a[i - 1] # 下三角
+        for i in range(len(a) - 2, -1, -1): 
+            tmp *= a[i + 1] # 上三角
+            b[i] *= tmp # 下三角 * 上三角
+        return b
+
