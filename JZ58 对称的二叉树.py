@@ -26,6 +26,11 @@
 输入：root = [1,2,2,null,3,null,3]
 输出：false
 
+对称二叉树定义： 对于树中 任意两个对称节点 L 和 R ，一定有：
+L.val = R.val ：即此两对称节点值相等。
+L.left.val = R.right.val ：即 L 的 左子节点 和 R 的 右子节点 对称；
+L.right.val = R.left.val ：即 L 的 右子节点 和 R 的 左子节点 对称。
+
 recur：
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
