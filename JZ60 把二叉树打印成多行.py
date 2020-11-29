@@ -16,3 +16,35 @@
   [15,7]
 ]
 
+自创：双栈
+
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        stack = [root]
+        l = []
+        res = [[root.val]]
+
+        while stack or l:
+            while stack:
+                temp = stack.pop(0)
+                if temp.left:
+                    l.append(temp.left)
+                if temp.right:
+                    l.append(temp.right)
+            temp = []
+            for i in l:
+                temp += [i.val]
+            if temp: res.append(temp)
+
+            while l:
+                temp = l.pop(0)
+                if temp.left:
+                    stack.append(temp.left)
+                if temp.right:
+                    stack.append(temp.right)
+            temp = []
+            for i in stack:
+                temp += [i.val]
+            if temp: res.append(temp)
+        
+        return res
