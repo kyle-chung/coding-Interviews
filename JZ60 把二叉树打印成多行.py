@@ -20,31 +20,50 @@
 
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        stack = [root]
-        l = []
-        res = [[root.val]]
+        # 思路：层序遍历二叉树分开保存每一层的节点值，初始化res：输出保存列表；nodel_list是保存节点列表，列表内容更新来自于每一层
+        #       layer_nodel列表；layer_val 保存每一层值；
+        if not root:
+            return []
+        res = []
+        node_list = []
+        node_list.append(root)
 
-        while stack or l:
-            while stack:
-                temp = stack.pop(0)
-                if temp.left:
-                    l.append(temp.left)
-                if temp.right:
-                    l.append(temp.right)
-            temp = []
-            for i in l:
-                temp += [i.val]
-            if temp: res.append(temp)
+        while node_list:
+            layer_val = []
+            layer_node = []
+            while node_list:
+                node = node_list.pop(0)
+                layer_val.append(node.val)
 
-            while l:
-                temp = l.pop(0)
-                if temp.left:
-                    stack.append(temp.left)
-                if temp.right:
-                    stack.append(temp.right)
-            temp = []
-            for i in stack:
-                temp += [i.val]
-            if temp: res.append(temp)
-        
+                if node.left: layer_node.append(node.left)
+                if node.right: layer_node.append(node.right)
+            node_list.extend(layer_node)
+            res.append(layer_val)
         return res
+
+
+
+recur:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        if not root:
+            return []
+        res = []
+        def dfs(node, level):
+            if not node:return
+            # 这句是关键
+            # 当发现节点为第level层，而res有len（res）层，即只有第len（res）-1 = level-1层，res增加一个list
+            # 例如节点level == 1，而len（res） == 1，即只有第0层
+            if len(res) == level:
+                res.append([])
+            res[level].append(node.val)
+            dfs(node.left, level+1)
+            dfs(node.right, level+1)
+        dfs(root, 0)
+        return res
+    
+
+
+
+
+
+
