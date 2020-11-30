@@ -21,3 +21,19 @@
    2   4
   /
  1
+
+性质：二叉搜索树的中序遍历为 递增序列 。   
+
+深度优先搜索:中序遍历
+class Solution:
+    def kthLargest(self, root: TreeNode, k: int) -> int:
+        res = []
+        def dfs(root, res):
+            if not root:
+                return
+            dfs(root.left, res)
+            res.append(root.val)
+            dfs(root.right, res)
+        dfs(root, res)
+        return res[-k]
+
