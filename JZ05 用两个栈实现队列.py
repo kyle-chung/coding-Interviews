@@ -14,7 +14,7 @@
 [[],[],[5],[2],[],[]]
 输出：[null,-1,null,null,5,2]
 
-
+# 双栈
 class CQueue:
     def __init__(self):
         self.A, self.B = [], []
@@ -28,3 +28,23 @@ class CQueue:
         while self.A:
             self.B.append(self.A.pop())
         return self.B.pop()
+    
+一个队列具备的两个功能分别由两个栈来完成：栈A实现入队功能，栈B实现出队功能
+
+# 单队列
+class CQueue:
+    
+    def __init__(self):
+        self.l = []
+
+    def appendTail(self, value: int) -> None:
+        self.l.append(value)
+        return None
+
+    def deleteHead(self) -> int:
+        if self.l:
+            return self.l.pop(0)
+        else:
+            return -1
+
+
