@@ -33,8 +33,8 @@ class Solution:
 
 “根节点” 对应的是矩阵的 “左下角” 和 “右上角” 元素，本文称之为 标志数 ，以 matrix 中的 左下角元素 为标志数 flag ，则有:
 
-若 flag > target ，则 target 一定在 flag 所在 行的上方 ，即 flag 所在行可被消去。
-若 flag < target ，则 target 一定在 flag 所在 列的右方 ，即 flag 所在列可被消去。
+若 flag > target ，则 target 一定在 flag 所在 行的上方 ，即 flag 所在行可被消去。！！！！
+若 flag < target ，则 target 一定在 flag 所在 列的右方 ，即 flag 所在列可被消去。！！！！
 
 算法流程：
 从矩阵 matrix 左下角元素（索引设为 (i, j) ）开始遍历，并与目标值对比：
