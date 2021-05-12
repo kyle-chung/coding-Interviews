@@ -5,7 +5,18 @@
 输入：s = "We are happy."
 输出："We%20are%20happy."
 
-# O(n)
+# Traversal
+class Solution:
+    def replaceSpace(self, s: str) -> str:
+        temp = ''
+        for i in s:
+            if i == ' ':
+                temp += '%20'
+            else:
+                temp += i
+        return temp
+
+# O(n) 内置函数
 class Solution:
     def replaceSpace(self, s: str) -> str:
         s = s.split(' ')
