@@ -14,7 +14,7 @@ class Solution:
             head = head.next
         return stack[::-1]
 
-方法1：递归法 利用递归将头结点移动到末端，然后回溯，依次将节点的值放入到列表中，既可以实现链表中的值倒序输出。
+# recursion 利用递归将头结点移动到末端，然后回溯，依次将节点的值放入到列表中，既可以实现链表中的值倒序输出。
 O(n)
 
 class Solution:
