@@ -26,7 +26,7 @@ class Solution:
             l.append(new)
         return l[len(l) - 1] + l[len(l) - 2]
 
-# method1 recursive
+# recursive
 常规的递归操作时间复杂度O(2^N), 循环操作时间复杂度O（N）
 class Solution:
     def fib(self, n: int) -> int:
