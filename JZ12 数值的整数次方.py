@@ -42,4 +42,23 @@ class Solution:
 
 返回 res
 
+# recursive
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        if n == 0:
+            return 1
+        elif n < 0:
+            return 1/self.myPow(x, -n)
+        elif n & 1:
+            return x * self.myPow(x, n - 1)
+        else:
+            return self.myPow(x*x, n // 2)
+
+如果n == 0，返回1
+如果n < 0，最终结果为 1/x^{-n}
+如果n为奇数，最终结果为 x * x ^ {n-1}
+如果n为偶数，最终结果为 x ^ {2*(n/2)}
+
+
 
