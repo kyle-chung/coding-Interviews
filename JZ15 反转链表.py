@@ -28,7 +28,7 @@ class Solution:
 
 双指针
 class Solution:
-    # 双指针，一个指针用作新生成的一个链表当前节点，另一个指针用于源链表遍历
+    # 双指针，一个指针用作新生成的一个链表当前节点，另一个指针用于原链表遍历
     def reverseList(self, head: ListNode) -> ListNode:
         if not head:
             return None
