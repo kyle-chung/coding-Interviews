@@ -24,6 +24,9 @@ class Solution:
 因此我们只需要求出每个位置的 f(i)，然后返回 f 数组中的最大值即可。
 
 # 分治 时间复杂度 O(nlogn)
+
+最大子序和要么在左半边，要么在右半边，要么是穿过中间，对于左右边的序列，情况也是一样，因此可以用递归处理。中间部分的则可以直接计算出来
+
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         n = len(nums)
