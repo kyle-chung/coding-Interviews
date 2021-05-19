@@ -24,5 +24,16 @@ class Solution:
         dfs(0)
         return res
 
+# recursive
+class Solution:
+    def permutation(self, s: str) -> List[str]:
+        if len(s) == 1:
+            return [s]
+
+        l = []
+        for i in range(len(s)):
+            for j in self.permutation(s[:i]+s[i+1:]):
+                l.append(s[i] + j)
+        return list(set(l)) # 去重
 
 
