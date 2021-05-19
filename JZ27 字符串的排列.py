@@ -36,4 +36,5 @@ class Solution:
                 l.append(s[i] + j)
         return list(set(l)) # 去重
 
+注意 l 为 local variable
 
