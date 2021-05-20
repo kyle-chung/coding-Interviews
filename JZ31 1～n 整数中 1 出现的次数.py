@@ -26,4 +26,14 @@ class Solution:
             high //= 10
             digit *= 10
         return res
+    
+当 cur = 0 时： 此位 1 的出现次数只由高位 high 决定，计算公式为：
+high × digit
+
+当 cur = 1 时： 此位 1 的出现次数由高位 high 和低位 low 决定，计算公式为：
+high × digit + low + 1
+
+当 cur = 2, 3,..., 9 时： 此位 1 的出现次数只由高位 high 决定，计算公式为：
+(high+1) × digit   
+    
 灵活利用//，%！！
