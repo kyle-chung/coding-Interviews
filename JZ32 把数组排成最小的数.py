@@ -22,8 +22,8 @@
 class Solution:
     def minNumber(self, nums: List[int]) -> str:
         def fast_sort(l , r):
-            if l >= r: return
-            i, j = l, r
+            if l >= r: 
+                return i, j = l, r
             while i < j:
 #               找到j '<' l
                 while strs[j] + strs[l] >= strs[l] + strs[j] and i < j: j -= 1
