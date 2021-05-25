@@ -16,6 +16,7 @@
 合并阶段 本质上是 合并两个排序数组 的过程，而每当遇到 左子数组当前元素 > 右子数组当前元素 时
 意味着 「左子数组当前元素 至 末尾元素」 与 「右子数组当前元素」 构成了若干 「逆序对」 。
 
+时间复杂度 O(N log N)
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
         def merge_sort(l, r):
