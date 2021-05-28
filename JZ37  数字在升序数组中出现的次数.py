@@ -27,3 +27,17 @@ class Solution:
         left = j
         return right - left - 1
 
+以上代码显得比较臃肿（两轮二分查找代码冗余）。为简化代码，可将二分查找右边界 right 的代码 封装至函数 helper()
+本质上看， helper() 函数旨在查找数字 tar 在数组 nums 中的 插入点 ，且若数组中存在值相同的元素，则插入到这些元素的右边。
+
+class Solution:
+    def search(self, nums: [int], target: int) -> int:
+        def helper(tar):
+            i, j = 0, len(nums) - 1
+            while i <= j:
+                m = (i + j) // 2
+                if nums[m] <= tar: i = m + 1
+                else: j = m - 1
+            return i
+        return helper(target) - helper(target - 1)
+
