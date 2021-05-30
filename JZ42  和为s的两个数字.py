@@ -22,3 +22,4 @@ class Solution:
             else: return nums[i], nums[j]
         return []
 
+本质同JZ01
