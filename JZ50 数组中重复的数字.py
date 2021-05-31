@@ -8,29 +8,15 @@
 [2, 3, 1, 0, 2, 5, 3]
 输出：2 或 3 
 
-
-# 暴力解法：O(1)--O(n^2)
-class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
-        l = []
-        for i in nums:
-            if i in l:
-                return i
-            else:
-                l.append(i)
-
-方法1：利用python set的无序不重复特性：利用Python中的set集合为无序不重复集合，通过判断temp_set的长度确定是否是重复数字。
+方法1：Set 时间复杂度 O(N)
 
 class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
-        temp_set = set()
-        repeat = -1
-        for i in range(len(nums)):
-            temp_set.add(nums[i])
-            if len(temp_set) < i + 1:
-                repeat = nums[i]
-                break
-        return repeat
+    def findRepeatNumber(self, nums: [int]) -> int:
+        dic = set()
+        for num in nums:
+            if num in dic: return num
+            dic.add(num)
+        return -1
                 
 方法2：从头到尾扫描数组,当扫描到下标为i的数字时,首先比较这个数字(用m表示)是否等于下标i,如果等于就扫描下一个数字;如果不是,则将它和第m个数字进行比较.
       如果它和第m个数相等,那么出现了重复直接返回;如果不相等,则将它和第m个数进行交换,把m放到第m个位置上
