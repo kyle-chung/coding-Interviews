@@ -31,17 +31,8 @@ class Solution:
                 repeat = nums[i]
                 break
         return repeat
-        
-方法2：利用python的sort函数排序，然后计算相邻两个数据是否相等即可。
-
-class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
-        nums.sort()
-        for i in range(len(nums)-1):
-            if nums[i]==nums[i+1]:
-                return nums[i]
                 
-方法3：从头到尾扫描数组,当扫描到下标为i的数字时,首先比较这个数字(用m表示)是否等于下标i,如果等于就扫描下一个数字;如果不是,则将它和第m个数字进行比较.
+方法2：从头到尾扫描数组,当扫描到下标为i的数字时,首先比较这个数字(用m表示)是否等于下标i,如果等于就扫描下一个数字;如果不是,则将它和第m个数字进行比较.
       如果它和第m个数相等,那么出现了重复直接返回;如果不相等,则将它和第m个数进行交换,把m放到第m个位置上
       重复这个过程,直到出现一个重复的数字 
       时间复杂度O(n)均摊,空间复杂度O(1)
