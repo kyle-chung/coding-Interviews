@@ -24,6 +24,7 @@ word[k..] 表示字符串 word 从第 k 个字符开始的后缀子串
 为了防止重复遍历相同的位置，需要额外维护一个与 board 等大的 visited 数组，用于标识每个位置是否被访问过。
 每次遍历相邻位置时，需要跳过已经被访问的位置。
 
+我们对每一个位置 (i,j) 都调用函数 check(i,j,0) 进行检查：只要有一处返回 true，就说明网格中能够找到相应的单词，否则说明不能找到。
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
