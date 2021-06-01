@@ -16,3 +16,45 @@
 
 输入：board = [["a","b"],["c","d"]], word = "abcd"
 输出：false
+
+# backtracking
+设函数 check(i, j, k) 表示判断以网格的 (i, j) 位置出发，能否搜索到单词 word[k..]
+word[k..] 表示字符串 word 从第 k 个字符开始的后缀子串
+
+为了防止重复遍历相同的位置，需要额外维护一个与 board 等大的 visited 数组，用于标识每个位置是否被访问过。
+每次遍历相邻位置时，需要跳过已经被访问的位置。
+
+
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        # 定义上下左右四个行走方向
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+        def check(i: int, j: int, k: int) -> bool:
+            if board[i][j] != word[k]:
+                return False
+            if k == len(word) - 1:
+                return True
+            
+            visited.add((i, j))
+            result = False
+            for di, dj in directions:
+                newi, newj = i + di, j + dj
+                if 0 <= newi < len(board) and 0 <= newj < len(board[0]):
+                    if (newi, newj) not in visited:
+                        if check(newi, newj, k + 1):
+                            result = True
+                            break
+            
+            visited.remove((i, j))
+            return result
+
+        h, w = len(board), len(board[0])
+        visited = set()
+        for i in range(h):
+            for j in range(w):
+                if check(i, j, 0):
+                    return True
+        
+        return False
+
