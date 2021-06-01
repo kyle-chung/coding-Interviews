@@ -57,4 +57,10 @@ class Solution:
                     return True
         
         return False
+    
+函数 check(i,j,k) 的执行步骤如下：
+
+如果 board[i][j] != s[k]，当前字符不匹配，直接返回 false。
+如果当前已经访问到字符串的末尾，且对应字符依然匹配，此时直接返回 true。
+否则，遍历当前位置的所有相邻位置。如果从某个相邻位置出发，能够搜索到子串 word[k+1..]，则返回 true，否则返回 false。
 
