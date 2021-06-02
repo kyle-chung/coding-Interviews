@@ -31,9 +31,12 @@ class Solution:
             i, j, si, sj = queue.pop(0)
             if i >= m or j >= n or k < si + sj or (i, j) in visited: continue
             visited.add((i,j))
+            # 只需向两个方向前进即可
             queue.append((i + 1, j, si + 1 if (i + 1) % 10 else si - 8, sj))
             queue.append((i, j + 1, si, sj + 1 if (j + 1) % 10 else sj - 8))
         return len(visited)
+    
+si, sj 为 i, j 数位之和
 
 python in的时间复杂度：list：O(n) dict/set: O(1)
 
