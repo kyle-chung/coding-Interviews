@@ -14,6 +14,20 @@
  1  3  -1 [-3  5  3] 6  7       5
  1  3  -1  -3 [5  3  6] 7       6
  1  3  -1  -3  5 [3  6  7]      7
+  
+# 暴力法
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        if k == 0: return []
+        if k == 1: return nums
+        res = []
+        pos = 0
+        while pos + k <= len(nums):
+            res.append(max(nums[pos:pos+k]))
+            pos += 1
+        return res
+
+ 注：非最优
 
   
   
