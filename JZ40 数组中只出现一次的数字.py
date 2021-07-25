@@ -16,5 +16,21 @@ class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         return reduce(lambda x, y: x ^ y, nums)
 
+or:
+class Solution:
+    def singleNumber(self, nums):
+        res = 0
+        for num in nums:
+            res = res ^ num
+        return res
+      
+交换律：a ^ b ^ c <=> a ^ c ^ b
+
+任何数于0异或为任何数 0 ^ n => n
+
+相同的数异或为0: n ^ n => 0
+  
+2 ^ 3 ^ 2 ^ 4 ^ 4等价于 2 ^ 2 ^ 4 ^ 4 ^ 3 => 0 ^ 0 ^3 => 3
+
 
 
