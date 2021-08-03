@@ -23,6 +23,7 @@ class Solution:
         def fast_sort(l , r):
             if l >= r: return None
             i, j = l, r
+#           这里基准数pivot为strs[l]
             while i < j:
 #               找到j '<' l
                 while strs[j] + strs[l] >= strs[l] + strs[j] and i < j: j -= 1
