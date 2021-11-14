@@ -16,7 +16,8 @@ class Solution:
             l.append(head)
             head = head.next
         return l[-k]
-      
+
+# 双指针 空间复杂度 O(1)
 设置一个指针走 (n−k) 步
 class Solution:
     def getKthFromEnd(self, head: ListNode, k: int) -> ListNode:
