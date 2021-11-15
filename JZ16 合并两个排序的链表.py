@@ -5,10 +5,12 @@
 输入：1->2->4, 1->3->4
 输出：1->1->2->3->4->4
 
+# 时间复杂度 O(M+N): M, N 分别为链表长度，合并操作需遍历两链表
 核心思想：定义一个节点用于返回， 循环比大小，谁小连谁，最后连没连完的
+
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        dummy = cur = ListNode(0)
+        dummy = cur = ListNode(None)
         while l1 and l2:
             if l1.val < l2.val: #l1 小
                 cur.next = l1 
@@ -23,7 +25,7 @@ class Solution:
 简化版        
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        cur = dum = ListNode(0)
+        cur = dum = ListNode(None)
         while l1 and l2:
             if l1.val < l2.val:
                 cur.next, l1 = l1, l1.next
