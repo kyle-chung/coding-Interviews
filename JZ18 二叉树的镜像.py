@@ -20,7 +20,7 @@
 输入：root = [4,2,7,1,3,6,9]
 输出：[4,7,2,9,6,3,1]
 
-recur:
+# recur: O(N) O(N)
 class Solution:
     def mirrorTree(self, root: TreeNode) -> TreeNode:
         if not root: return
@@ -29,7 +29,8 @@ class Solution:
         root.right = self.mirrorTree(tmp)
         return root
     
-辅助栈: 利用栈（或队列）遍历树的所有节点 nodenode ，并交换每个 nodenode 的左 / 右子节点
+# 辅助栈 O(N) O(N)
+利用栈（或队列）遍历树的所有节点 nodenode ，并交换每个 nodenode 的左 / 右子节点
 class Solution:
     def mirrorTree(self, root: TreeNode) -> TreeNode:
         if not root: return
