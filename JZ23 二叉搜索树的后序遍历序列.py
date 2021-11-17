@@ -24,7 +24,34 @@
 当节点值r(i) < r(i+1) 时： 节点r(i)⼀定是某节点 root 的左⼦节点，且 root 为节点 r(i+1) 到 r(n)中值⼤于且最接近r(i)的节点
 （∵ root直接连接左⼦节点r(i)）
 
-辅助单调栈：
+# recur 
+时间复杂度 O(N^2) 
+每次调用 recur(i,j) 减去一个根节点，因此递归占用 O(N) 
+最差情况下（即当树退化为链表），每轮递归都需遍历树所有节点，占用 O(N)
+
+空间复杂度 O(N)
+最差情况下（即当树退化为链表），递归深度将达到 N
+
+终止条件： 
+当 i ≥ j ，说明此子树节点数量 ≤ 1 ，无需判别正确性，因此直接返回 true
+
+递推工作：
+划分左右子树
+判断是否为二叉搜索树
+
+class Solution:
+    def verifyPostorder(self, postorder: [int]) -> bool:
+        def recur(i, j):
+            if i >= j: return True
+            p = i
+            while postorder[p] < postorder[j]: p += 1
+            m = p
+            while postorder[p] > postorder[j]: p += 1
+            return p == j and recur(i, m - 1) and recur(m, j - 1)
+
+        return recur(0, len(postorder) - 1)
+
+# 辅助单调栈：
 class Solution:
     def verifyPostorder(self, postorder: [int]) -> bool:
         stack, root = [], float("+inf")
