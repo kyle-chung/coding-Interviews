@@ -12,6 +12,21 @@
 输入解释：相交节点的值为 2 （注意，如果两个列表相交则不能为 0）。
 从各自的表头开始算起，链表 A 为 [0,9,1,2,4]，链表 B 为 [3,2,4]。在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。
 
+# 双指针
+我们使用两个指针 node1，node2 分别指向两个链表 headA，headB 的头结点，然后同时分别逐结点遍历。
+当 node1 到达链表 headA 的末尾时，重新定位到链表 headB 的头结点；当 node2 到达链表 headB 的末尾时，重新定位到链表 headA 的头结点。
+这样，当它们相遇时，所指向的结点就是第一个公共结点。
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        node1, node2 = headA, headB
+        
+        while node1 != node2:
+            node1 = node1.next if node1 else headB
+            node2 = node2.next if node2 else headA
+
+        return node1
+
 # set
 先遍历A链表把所有节点都放入集合，然后遍历B，当发现集合长度不增长，说明刚才扔进去得节点是重复节点。
 class Solution:
@@ -28,17 +43,4 @@ class Solution:
             headB = headB.next
         return None
 
-# 双指针
-我们使用两个指针 node1，node2 分别指向两个链表 headA，headB 的头结点，然后同时分别逐结点遍历。
-当 node1 到达链表 headA 的末尾时，重新定位到链表 headB 的头结点；当 node2 到达链表 headB 的末尾时，重新定位到链表 headA 的头结点。
-这样，当它们相遇时，所指向的结点就是第一个公共结点。
 
-class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
-        node1, node2 = headA, headB
-        
-        while node1 != node2:
-            node1 = node1.next if node1 else headB
-            node2 = node2.next if node2 else headA
-
-        return node1
