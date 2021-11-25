@@ -12,43 +12,26 @@
   9  20
     /  \
    15   7
-返回它的最大深度 3 。
+返回它的最大深度 3 
 
-自创：双stack
+    
+# DFS： O(N) O(N) N 为树的节点数量
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
-        stack1 = [root]
-        stack2 = []
-        depth = 0
+        if not root: return 0
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
 
-        while stack1 or stack2:
-            if stack1: depth += 1
-            while stack1:
-                temp = stack1.pop()
-                if temp.left:
-                    stack2.append(temp.left)
-                if temp.right:
-                    stack2.append(temp.right)
-
-            if stack2: depth += 1
-            while stack2:
-                temp = stack2.pop()
-                if temp.left:
-                    stack1.append(temp.left)
-                if temp.right:
-                    stack1.append(temp.right)
-
-        return depth
-    
-recur：
-class Solution(object):
-    def maxDepth(self, root):
-        if root == None:
-            return 0
-        
-        left_high = self.maxDepth(root.left)
-        right_high = self.maxDepth(root.right)
-
-        return max(left_high,right_high) + 1
-
+# BFS O(N) O(N)
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        if not root: return 0
+        queue, res = [root], 0
+        while queue:
+            tmp = []
+            for node in queue:
+                if node.left: tmp.append(node.left)
+                if node.right: tmp.append(node.right)
+            queue = tmp
+            res += 1
+        return res
 
