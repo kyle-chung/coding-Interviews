@@ -11,7 +11,7 @@
    15   7
 返回 true 。
 
-# 先序遍历 + 判断深度 （从顶至底）O(N) O(N)
+# 先序遍历 + 判断深度 （从顶至底）O(NlogN) O(N)
 
 思路是构造一个获取当前子树的深度的函数 depth(root) （即 JZ38. 二叉树的深度 ）。
 通过比较某子树的左右子树的深度差 abs(depth(root.left) - depth(root.right)) <= 1 是否成立，来判断某子树是否是二叉平衡树。若所有子树都平衡，则此树平衡。
@@ -26,7 +26,7 @@ class Solution:
         if not root: return 0
         return max(self.depth(root.left), self.depth(root.right)) + 1
     
-# 后序遍历 + 剪枝 （从底至顶）O(NlogN) O(N)
+# 后序遍历 + 剪枝 （从底至顶）O(N) O(N)
 
 思路是对二叉树做后序遍历，从底至顶返回子树深度，若判定某子树不是平衡树则 “剪枝” ，直接向上返回
 时间复杂度 O(N)
