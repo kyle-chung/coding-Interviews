@@ -31,7 +31,7 @@ L.val = R.val ：即此两对称节点值相等。
 L.left.val = R.right.val ：即 L 的 左子节点 和 R 的 右子节点 对称；
 L.right.val = R.left.val ：即 L 的 右子节点 和 R 的 左子节点 对称。
 
-recur：
+# recur O(N) O(N)
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
         def recur(L, R):
@@ -40,48 +40,4 @@ class Solution:
             return recur(L.left, R.right) and recur(L.right, R.left)
 
         return recur(root.left, root.right) if root else True
- 
-自创：双栈
-class Solution:
-    def isSymmetric(self, root: TreeNode) -> bool:
-        stack = [root]
-        l = []
-        temp_l = []
-        while stack or l:
-            while stack:
-                temp = stack.pop(0)
-                if temp != 'x':
-                    if temp.left:
-                        l.append(temp.left)
-                    else: l.append('x')
-                    if temp.right:
-                        l.append(temp.right)
-                    else: l.append('x')
 
-            for i in range(len(l)):
-                if l[i] == 'x':
-                    temp_l.append(l[i])
-                else:
-                    temp_l.append(l[i].val)
-            if temp_l != temp_l[::-1]: return False
-            temp_l = []
-
-
-            while l:
-                temp = l.pop(0)
-                if temp != 'x':
-                    if temp.left:
-                        stack.append(temp.left)
-                    else: stack.append('x')
-                    if temp.right:
-                        stack.append(temp.right)
-                    else: stack.append('x')
-            for i in range(len(stack)):
-                if stack[i] == 'x':
-                    temp_l.append('x')
-                else:
-                    temp_l.append(stack[i].val)
-            if temp_l != temp_l[::-1]: return False
-            temp_l = []
-        
-        return True
