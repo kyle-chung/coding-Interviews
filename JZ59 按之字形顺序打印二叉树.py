@@ -17,7 +17,7 @@
   [15,7]
 ]
 
-双栈：
+# 双栈
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         res = []
