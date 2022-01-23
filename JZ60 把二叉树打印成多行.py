@@ -19,7 +19,6 @@
 ]
 
 自创：双栈
-
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         # 思路：层序遍历二叉树分开保存每一层的节点值，初始化res：输出保存列表；nodel_list是保存节点列表，列表内容更新来自于每一层
