@@ -24,7 +24,7 @@
 
 性质：二叉搜索树的中序遍历为 递增序列 。   
 
-深度优先搜索:中序遍历
+# dfs:中序遍历
 class Solution:
     def kthLargest(self, root: TreeNode, k: int) -> int:
         res = []
@@ -36,4 +36,20 @@ class Solution:
             dfs(root.right, res)
         dfs(root, res)
         return res[-k]
+
+优化方向：如若使用「倒序」中序遍历，则只需储存到 k 个数字后，便可 return 👇
+      
+class Solution:
+    def kthLargest(self, root: TreeNode, k: int) -> int:
+        def dfs(root):
+            if not root: return
+            dfs(root.right)
+            if self.k == 0: return
+            self.k -= 1
+            if self.k == 0: self.res = root.val
+            dfs(root.left)
+
+        self.k = k
+        dfs(root)
+        return self.res
 
